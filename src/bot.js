@@ -49,6 +49,28 @@ client.on('messageCreate', async (message) => {
 
         }
 
+        if(CMD_NAME === "hpmeme"){
+            //Function used to pick a random element from the array
+            const random = (arr) => arr[Math.floor(Math.random() * arr.length)];
+            //Array used to store the images used in the meme command
+            const images = [
+                'https://i.redd.it/r4a4ln1qpl291.jpg',
+                'https://i.redd.it/l0apclom7tl71.jpg',
+                'https://i.redd.it/l9dpdbzqz7881.jpg',
+                'https://i.redd.it/fg3rxjurqt771.jpg',
+                'https://i.redd.it/pbs5v72s9qr61.jpg'
+
+
+            ]
+
+            const embedImage = new MessageEmbed()
+                .setDescription('Harry Potter Memes')
+                .setImage(random(images))
+                .setTitle('Harry Potter Meme')
+            message.channel.send({ embeds: [embedImage] })
+
+        }
+
     }
 })
 
